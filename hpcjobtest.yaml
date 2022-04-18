@@ -1,0 +1,26 @@
+apiVersion: keti/v1
+kind: Hpcjob
+metadata:
+  name: slurmtest
+spec:
+  nodenum: 1
+  tasks: 1
+  containers:
+  - name: singularity_test
+    image: ketidevit2/kmc-cuda-test:v43
+    commands: ["singularity","exec","--nv","kmc-cuda-test:v43.sif","nbody","--benchmark","--numbodies=512000"]
+    std_input: /dev/null
+    std_output: /data/NFS/output/test.out
+    std_error: /data/NFS/output/test.err
+    resources:
+      limit:
+        gpu: 1
+    
+
+
+
+
+
+
+
+

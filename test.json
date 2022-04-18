@@ -1,0 +1,13 @@
+{
+    "jobs": {
+        "name": "test",
+        "current_working_directory": "/data/NFS",
+        "standard_output": "/tmp/slurm/test.out",
+        "standard_error": "/tmp/slurm/test.err",
+        "environment": {
+            "PATH": "/bin:/usr/bin/:/usr/local/bin/",
+            "LD_LIBRARY_PATH": "/lib/:/lib64/:/usr/local/lib"
+        }
+    },
+    "script": "singularity exec --nv kmc-cuda-test_v43.sif nbody --benchmark --numbodies=512000"
+}
